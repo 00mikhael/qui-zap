@@ -1,26 +1,35 @@
 {
-  "name": "jsx-exercises",
+  "name": "qui-zap",
   "version": "0.1.0",
+  "description": "state of the art qui zap",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
+    "@craco/craco": "^6.1.1",
+    "@testing-library/react": "^11.2.6",
+    "axios": "^0.21.1",
+    "formik": "^2.2.6",
+    "json-server": "^0.16.3",
+    "moment": "^2.29.1",
+    "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-github-btn": "^1.2.0",
+    "react-icons": "^4.2.0",
+    "react-loader-spinner": "^4.0.0",
+    "react-redux": "^7.2.4",
     "react-scripts": "4.0.3",
-    "web-vitals": "^1.0.1"
+    "redux": "^4.1.0",
+    "yup": "^0.32.9"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   },
   "browserslist": {
@@ -34,5 +43,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss7-compat": "^2.1.0",
+    "autoprefixer": "^9.8.6",
+    "cross-env": "^7.0.3",
+    "postcss": "^7.0.35",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.0"
   }
 }

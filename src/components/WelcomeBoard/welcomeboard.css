@@ -1,0 +1,11 @@
+/* @media screen and (max-width: 768px) {
+    .welcome {
+        writing-mode: horizontal-tb;
+        text-orientation: inherit;
+    }
+}
+
+.welcome {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+} */
