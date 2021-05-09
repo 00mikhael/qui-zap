@@ -2,6 +2,7 @@ import React from "react";
 
 import Board from '../Board'
 import Quiz from '../Quiz'
+import QuizItem from '../QuizItem'
 
 import styles from './Playground.module.css'
 import image from '../../assets/img/pic.jpg'
@@ -15,9 +16,9 @@ const StartButton = () => {
 const QuizTitleDescription = () => {
   return (
     <div className={`flex flex-col space-y-2 col-start-2 col-end-5 sm:col-start-2 sm:col-end-3`}>
-      <span className={`font-extrabold text-3xl text-fuchsia-600`}>Author Quiz</span>
-      <span className={`font-normal text-base text-fuchsia-500`}>Select a book written by the author.</span>
-      <span className={`text-sm text-fuchsia-500 pt-6`}>Created by <span className={`font-bold`}>Qui Zap</span></span>
+      <span className={`font-extrabold text-3xl text-fuchsia-700`}>Author Quiz</span>
+      <span className={`font-normal text-base text-fuchsia-600`}>Select a book written by the author.</span>
+      <span className={`text-sm text-fuchsia-500 pt-6`}>Created by <span className={`font-bold text-fuchsia-600 `}>Qui Zap</span></span>
     </div>
   );
 }
@@ -30,8 +31,10 @@ const Question = () => {
 
 const QuestionImage = () => {
   return (
-    <span className={`${styles.filter} col-span-full md:col-start-1 md:col-end-3 md:row-start-2 mb-6 md:mr-6 md:mb-0 justify-self-center md:justify-self-start`} >
-      <img width={300} className={`${styles.shape}`} src={image} alt={``} />
+    <span className={`${styles.filter}  col-span-full md:col-start-1 md:col-end-3 md:row-start-2 mb-6 md:mr-6 md:mb-0 justify-self-center md:justify-self-start`} >
+      {false ? <img width={300} className={`${styles.shape}`} src={image} alt={``} />
+      :
+      <QuizItem className={`${styles.shape}`} />}
     </span>
   );
 }
