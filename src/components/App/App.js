@@ -5,7 +5,7 @@ import React from "react";
 import Logo from '../Logo'
 import Nav from '../Nav'
 import HomePage from '../HomePage'
-import Playground from '../Playground'
+// import Playground from '../Playground'
 
 
 const App = () => {
