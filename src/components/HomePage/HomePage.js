@@ -31,7 +31,7 @@ const AppTitle = () => {
 
 const AppDescription = () => {
   return (
-    <p style={{minHeight: '100px'}} className={` lg:self-start col-start-2 col-end-4 md:col-start-3 md:col-end-4 row-start-1 p-4  text-fuchsia-700 text-xs md:text-sm max-w-xl bg-fuchsia-200 rounded-md shadow-inner leading-5`}>{`State of the art quizing app, been referred to as the uber of quiz apps. Very easy to use just pick a quiz and answer the same questions over and over again. Currently working on securing our first round of funding as you read this.`}</p>
+    <p style={{minHeight: '100px'}} className={` lg:self-start col-start-2 col-end-5 md:col-start-3 md:col-end-4 row-start-1 p-4  text-fuchsia-600 text-xs md:text-sm max-w-xl bg-fuchsia-200 rounded-md shadow-inner`}>{`State of the art quizing app, been referred to as the uber of quiz apps. Very easy to use just pick a quiz and answer the same questions over and over again. Currently working on securing our first round of funding as you read this.`}</p>
   );
 };
 
