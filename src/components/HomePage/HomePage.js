@@ -13,7 +13,12 @@ const HomePage = () => {
       <Board left={<AppTitle/>} right={<AppDescription />} />
       <QuizList>
         <QuizItem showName={true} />
-        <QuizAdd showName={true} />
+        <QuizItem showName={true} />
+        <QuizItem showName={true} />
+        <QuizItem showName={true} />
+        <QuizItem showName={true} />
+        <QuizItem showName={true} />
+        <QuizAdd />
       </QuizList>
     </>
   );
@@ -30,7 +35,7 @@ const AppTitle = () => {
 
 const AppDescription = () => {
   return (
-    <p style={{minHeight: '100px'}} className={` lg:self-start col-start-2 col-end-5  sm:col-start-3 sm:col-end-4 row-start-1 p-4  text-fuchsia-600 text-xs md:text-sm max-w-xl bg-fuchsia-200 rounded-md shadow-inner`}>{`State of the art quizing app, been referred to as the uber of quiz apps. Very easy to use just pick a quiz and answer the same questions over and over again. Currently working on securing our first round of funding as you read this.`}</p>
+    <p style={{minHeight: '100px'}} className={` lg:self-start col-start-2 col-end-5  sm:col-start-3 sm:col-end-4 row-start-1 p-4  text-fuchsia-600 text-xs md:text-sm max-w-xl bg-fuchsia-300 rounded-md shadow-inner`}>{`State of the art quizing app, been referred to as the uber of quiz apps. Very easy to use just pick a quiz and answer the same questions over and over again. Currently working on securing our first round of funding as you read this.`}</p>
   );
 };
 

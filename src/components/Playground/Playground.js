@@ -9,16 +9,16 @@ import image from '../../assets/img/pic.jpg'
 
 const StartButton = () => {
   return (
-    <button className={`justify-self-start sm:justify-self-end col-start-2 sm:col-start-3 sm:col-end-4 border border-fuchsia-600 rounded text-fuchsia-600 max-w-min px-6 py-2 cursor-pointer hover:bg-fuchsia-700 hover:text-fuchsia-50 font-semibold`}>Start</button>
+    <button className={`justify-self-end col-start-4 sm:col-start-3  border border-fuchsia-600 rounded text-fuchsia-600 max-w-min px-6 py-2 cursor-pointer hover:bg-fuchsia-700 hover:text-fuchsia-50 font-semibold`}>Start</button>
   );
 }
 
 const QuizTitleDescription = () => {
   return (
-    <div className={`flex flex-col space-y-2 col-start-2 col-end-5 sm:col-start-2 sm:col-end-3`}>
+    <div className={`flex flex-col space-y-2 col-start-2 col-end-5 sm:col-start-2 sm:col-end-3 row-start-4`}>
       <span className={`font-extrabold text-3xl text-fuchsia-700`}>Author Quiz</span>
-      <span className={`font-normal text-base text-fuchsia-600`}>Select a book written by the author.</span>
-      <span className={`text-sm text-fuchsia-500 pt-6`}>Created by <span className={`font-bold text-fuchsia-600 `}>Qui Zap</span></span>
+      <span className={`font-normal text-base text-fuchsia-600`}>Select a book written by the author. </span>
+      <span className={`text-sm text-fuchsia-600 pt-6 items-end`}>Created by <span className={`font-bold text-fuchsia-600 `}>Qui Zap</span></span>
     </div>
   );
 }
@@ -41,7 +41,7 @@ const QuestionImage = () => {
 
 const QuestionOptions = ({children}) => {
   return (
-    <div className={` col-span-full md:col-start-3 md:col-end-5 md:row-start-2 text-base justify-self-center md:justify-self-end w-full`}>
+    <div className={` col-span-full md:col-start-3 md:col-end-5 md:row-start-2 text-base justify-self-center flex flex-col justify-center md:justify-self-end w-full`}>
       {children}
     </div>
   )
@@ -56,7 +56,7 @@ const Option = () => {
 const Playground = () => {
   return (
     <div className={`space-y-4`}>
-      <Board left={<QuizTitleDescription/>} right={<StartButton />} />
+      <Board className={`h-64`} left={<QuizTitleDescription/>} right={<StartButton />} />
       <Quiz>
         <Question />
         <QuestionImage />

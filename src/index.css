@@ -4,7 +4,9 @@
 
 
 @layer base {
-
+    .html,.body {
+        font-size: 1rem;
+    }
 }
 
 @layer components {
