@@ -1,8 +1,0 @@
-.shape {
-    clip-path: polygon(0 5%, 5% 0, 95% 0, 100% 5%, 100% 95%, 95% 100%, 5% 100%, 0 95%, 0 5%);
-}
-
-.filter {
-    filter: drop-shadow(0 0 0.5rem plum);
-    width: 300px;
-}

@@ -7,17 +7,15 @@ import QuizItem from '../QuizItem'
 import QuizAdd from '../QuizAdd'
 
 
-const HomePage = () => {
+
+const HomePage = ({quizList}) => {
   return (
     <>
       <Board left={<AppTitle/>} right={<AppDescription />} />
       <QuizList>
-        <QuizItem showName={true} />
-        <QuizItem showName={true} />
-        <QuizItem showName={true} />
-        <QuizItem showName={true} />
-        <QuizItem showName={true} />
-        <QuizItem showName={true} />
+        {quizList.map(quizItem => (
+          <QuizItem key={quizItem.id} showName={true} quiz={quizItem} />
+        ))}
         <QuizAdd />
       </QuizList>
     </>

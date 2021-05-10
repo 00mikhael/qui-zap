@@ -8,10 +8,10 @@ import HomePage from '../HomePage'
 import Playground from '../Playground'
 
 
-const App = () => {
+const App = ({allQuiz}) => {
   return (
     <div className={`bg-blueGray-50 min-h-screen border-t-2 border-fuchsia-600 space-y-4 flex flex-col`}>
-      <header className={`sticky top-0 border-b border-fuchsia-200 p-4 flex items-center justify-between bg-white shadow z-10`}>
+      <header className={`sticky top-0 border-b border-fuchsia-200 p-4 flex items-center justify-between bg-white shadow z-30`}>
           {/* <span className={`font-semibold text-fuchsia-600`}>&larr;</span> */}
           <Logo />
           <Nav className={`flex space-x-4`}>
@@ -22,12 +22,12 @@ const App = () => {
           </Nav>
       </header>
       <main className={`px-4 w-full md:mx-auto md:max-w-4xl lg:max-w-5xl xl:max-w-6xl flex-1`}>
-        <HomePage />
-        <Playground />
+        <HomePage quizList={allQuiz} />
+        <Playground quiz={allQuiz[1]} />
       </main>
       <footer className={`p-4 space-y-4 flex flex-col justify-center bg-fuchsia-100 shadow-inner `}>
         <div className={`bg-pink-200`}></div>
-        <small className={`text-fuchsia-600 self-center`}>With &hearts; from <a className={`border-b border-fuchsia-600 font-medium`}  target="_blank" rel="noreferrer" href="https://github.com/mikhaelnwankwo/qui-zap">Quizap HQ</a></small>
+        <small className={`text-fuchsia-500 self-center`}>With <span className={`text-red-600`}>&hearts;</span> from <a className={`border-b-2 border-fuchsia-600 text-fuchsia-600 `}  target="_blank" rel="noreferrer" href="https://github.com/mikhaelnwankwo/qui-zap">Quizap HQ</a></small>
       </footer>
     </div>
   );

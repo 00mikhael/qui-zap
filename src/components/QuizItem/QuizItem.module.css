@@ -1,7 +1,12 @@
-.question {
+.question_mark {
     font-size: 600%;
 }
 
-.bg {
-    background-color: rgba(238, 130, 238, .5);
+.question_mark_opacity {
+    opacity: .15;
+    top: 40%;
+}
+
+.item_bg {
+    background-image: linear-gradient(0deg, plum 2%, transparent 50%);
 }

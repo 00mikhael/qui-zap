@@ -2,10 +2,7 @@ import React from "react";
 
 import Board from '../Board'
 import Quiz from '../Quiz'
-import QuizItem from '../QuizItem'
-
-import styles from './Playground.module.css'
-import image from '../../assets/img/pic.jpg'
+import Question from '../Question'
 
 const StartButton = () => {
   return (
@@ -13,59 +10,23 @@ const StartButton = () => {
   );
 }
 
-const QuizTitleDescription = () => {
+const QuizTitleDescription = ({title, description, creator}) => {
   return (
     <div className={`flex flex-col space-y-2 col-start-2 col-end-5 sm:col-start-2 sm:col-end-3 row-start-4`}>
-      <span className={`font-extrabold text-3xl text-fuchsia-700`}>Author Quiz</span>
-      <span className={`font-normal text-base text-fuchsia-600`}>Select a book written by the author. </span>
-      <span className={`text-sm text-fuchsia-600 pt-6 items-end`}>Created by <span className={`font-bold text-fuchsia-600 `}>Qui Zap</span></span>
+      <span className={`font-extrabold text-3xl text-fuchsia-700`}>{title}</span>
+      <span className={`font-normal text-base text-fuchsia-600`}>{description}</span>
+      <span className={`font-bold text-fuchsia-600 text-sm text-fuchsia-600 pt-6 items-end`}>{creator}</span>
     </div>
   );
 }
 
-const Question = () => {
-  return (
-    <div className={`col-start-2 col-end-4 row-span-1 mb-8 text-center text-gray-700 w-full`}>Appropriately evisculate team building resources and backend synergy. </div>
-  );
-}
-
-const QuestionImage = () => {
-  return (
-    <span className={`${styles.filter}  col-span-full md:col-start-1 md:col-end-3 md:row-start-2 mb-6 md:mr-6 md:mb-0 justify-self-center md:justify-self-start`} >
-      {false ? <img width={300} className={`${styles.shape}`} src={image} alt={``} />
-      :
-      <QuizItem className={`${styles.shape}`} />}
-    </span>
-  );
-}
-
-const QuestionOptions = ({children}) => {
-  return (
-    <div className={` col-span-full md:col-start-3 md:col-end-5 md:row-start-2 text-base justify-self-center flex flex-col justify-center md:justify-self-end w-full`}>
-      {children}
-    </div>
-  )
-}
-
-const Option = () => {
-  return (
-    <div className={`bg-white rounded-tr-lg rounded-bl-lg text-base text-gray-700 border-l-8 border-fuchsia-300 p-4 mb-4 w-auto min-w-full shadow hover:shadow-md cursor-pointer`}>elements</div>
-  );
-}
-
-const Playground = () => {
+const Playground = ({quiz}) => {
   return (
     <div className={`space-y-4`}>
-      <Board className={`h-64`} left={<QuizTitleDescription/>} right={<StartButton />} />
+      <Board className={`h-64`} left={<QuizTitleDescription title={quiz.quizName} description={quiz.quizDescription} creator={quiz.creator}
+      />} right={<StartButton />} />
       <Quiz>
-        <Question />
-        <QuestionImage />
-        <QuestionOptions>
-          <Option />
-          <Option />
-          <Option />
-          <Option />
-        </QuestionOptions>
+        <Question quizImage={quiz.quizImageUrl} question={quiz.quizQuestions[1]} />
       </Quiz>
     </div>
   );
