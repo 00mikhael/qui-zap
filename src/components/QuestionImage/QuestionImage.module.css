@@ -3,7 +3,7 @@
 }
 
 .filter {
-    filter: drop-shadow(0 0 1rem plum);
+    filter: drop-shadow(0 0 .5rem plum);
 }
 
 .question_mark {

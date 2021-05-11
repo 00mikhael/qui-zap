@@ -47,7 +47,7 @@ const PlayPage = ({quiz}) => {
 
 
   return (
-    <div className={`space-y-4`}>
+    <div className={``}>
       <Board className={`h-64`} left={<QuizTitleDescription title={quiz.quizName} description={quiz.quizDescription} creator={quiz.creator}
       />} right={<StartButton />} />
       <Quiz>
