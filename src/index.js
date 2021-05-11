@@ -6,7 +6,6 @@ import App from './components/App';
 
 import image_url from './assets/img/de.jpg'
 import image_url2 from './assets/img/pic.jpg'
-import image_url3 from './assets/img/p.jpg'
 
 const data = {
   quizList: [
