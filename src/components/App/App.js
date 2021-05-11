@@ -32,7 +32,7 @@ const App = ({quizList}) => {
 
     <Router>
 
-      <div className={`bg-blueGray-50 min-h-screen max-h-screen border-t-2 border-fuchsia-600 space-y-4 flex flex-col`}>
+      <div className={`bg-blueGray-50 min-h-screen border-t-2 border-fuchsia-600 space-y-4 flex flex-col`}>
 
         <header className={`sticky top-0 border-b border-fuchsia-200 p-4 flex items-center justify-between bg-white shadow z-30`}>
 
