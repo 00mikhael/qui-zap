@@ -8,13 +8,13 @@ import QuizAdd from '../QuizAdd'
 
 
 
-const HomePage = ({quizList}) => {
+const HomePage = ({quizList, onAction}) => {
   return (
     <>
       <Board left={<AppTitle/>} right={<AppDescription />} />
       <QuizList>
         {quizList.map(quizItem => (
-          <QuizItem key={quizItem.id} showName={true} quiz={quizItem} />
+          <QuizItem onAction={() => onAction(quizItem)} key={quizItem.id} showName={true} quiz={quizItem} />
         ))}
         <QuizAdd />
       </QuizList>

@@ -1,9 +1,14 @@
 import React from "react";
 
 
-
 const Nav = ({className, children}) => {
-  return <div className={className}>{children}</div>;
+  return (
+    <nav>
+      <ul className={className}>
+        {children}
+      </ul>
+    </nav>
+  );
 };
 
 export default Nav;
