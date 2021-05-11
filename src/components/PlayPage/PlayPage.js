@@ -9,14 +9,14 @@ import {randomItem} from '../../utils/util'
 
 const PlayPage = ({quiz}) => {
 
-  const [question, setQuestion] = useState(randomItem(quiz.quizQuestions));
+  const [question, setQuestion] = useState(randomItem(quiz.questionList));
   const [selected, setSelected] = useState();
   const [answerStatus, setAnswerStatus] = useState();
 
   const handleAnswerSelected = (question, selected) => {
-    if (question.questionAnswer === selected) {
+    if (question.answer === selected.value) {
       setAnswerStatus('correct')
-    } else if (question.questionAnswer !== selected) {
+    } else if (question.questionAnswer !== selected.value) {
       setAnswerStatus('wrong')
     }
     setSelected(selected);
@@ -31,7 +31,7 @@ const PlayPage = ({quiz}) => {
 
     if (answerStatus === 'correct') {
       timer = setTimeout(() => {
-        setQuestion(randomItem(quiz.quizQuestions));
+        setQuestion(randomItem(quiz.questionList));
         setAnswerStatus('not answered')
       }, 1000);
     } else {
@@ -48,10 +48,10 @@ const PlayPage = ({quiz}) => {
 
   return (
     <div className={``}>
-      <Board className={`h-64`} left={<QuizTitleDescription title={quiz.quizName} description={quiz.quizDescription} creator={quiz.creator}
+      <Board className={`h-64`} left={<QuizTitleDescription title={quiz.name} description={quiz.description} creator={quiz.creator}
       />} right={<StartButton />} />
       <Quiz>
-        <Question selectedOption={selected} answerStatus={answerStatus} onAnswerSelected={handleAnswerSelected} quizImage={quiz.quizImageUrl} question={question} />
+        <Question selectedOption={selected} answerStatus={answerStatus} onAnswerSelected={handleAnswerSelected} quizImage={quiz.imageUrl} question={question} />
       </Quiz>
     </div>
   );

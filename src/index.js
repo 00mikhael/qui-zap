@@ -5,85 +5,80 @@ import './index.css';
 import App from './components/App';
 
 import image_url from './assets/img/de.jpg'
-import image_url2 from './assets/img/pic.jpg'
+// import image_url2 from './assets/img/pic.jpg'
 
 const data = {
   quizList: [
     {
       id: 1,
-      quizName: 'Author Quiz',
-      quizDescription: 'Select a book written by the author',
-      quizImageUrl: image_url,
-      quizCreator: 'Jumina',
-      quizQuestions: [
+      name: 'Coding Quiz',
+      description: 'A collection of javascript interview questions',
+      imageUrl: image_url,
+      creator: 'Quizap',
+      questionList: [
         {
+          id: 1,
+          quizId: 1,
           question: 'Select a book written by Mark Twain',
-          questionImageUrl: '',
-          questionAnswer: "world-cass experiences",
-          questionOptions: [
-            'The Adventres of Huckleberry Finn',
-            'world-cass experiences',
-            'maintain ore competencies',
-            'efficient meta-ervices'
+          imageUrl: '',
+          answer: "world-cass experiences",
+          options: [
+            {
+              id: 1,
+              questionId: 1,
+              value: 'The Adventres of Huckleberry Finn'
+            },
+            {
+              id: 2,
+              questionId: 1,
+              value: 'world-cass experiences'
+            },
+            {
+              id: 3,
+              questionId: 1,
+              value: 'maintain ore competencies'
+            },
+            {
+              id: 4,
+              questionId: 1,
+              value: 'efficient meta-ervices'
+            }
           ]
         },
         {
-          question: 'Which of the following is the correct way to memoize a function',
-          questionImageUrl: image_url2,
-          questionAnswer: "efficient meta-service",
-          questionOptions: [
-            'The Adventres of Huckleberry Finn',
-            'world-class experienes',
-            'maintain core competecies',
-            'efficient meta-service'
-          ]
-        }
-      ]
-    },
-    {
-      id: 2,
-      quizName: 'Coder Block',
-      quizDescription: 'Bunch of JS interview questionss',
-      quizImageUrl: '',
-      quizCreator: 'Codechef',
-      quizQuestions: [
-        {
-          question: 'Which of the following is the correct way to memoize a function',
-          questionImageUrl: '',
-          questionAnswer: "maitain core multidisciplinary",
-          questionOptions: [
-            'The multidisciplinary of Huckleberry Finn',
-            'multidisciplinary-class experiences',
-            'maitain core multidisciplinary',
-            'multidisciplinary meta-services'
-          ]
-        },
-        {
-          question: 'Select a book written by Mark Twain',
-          questionImageUrl: '',
-          questionAnswer: "The matrix of Huckleberry Finn",
-          questionOptions: [
-            'The matrix of Huckleberry Finn',
-            'worl-class matrix',
-            'maintain matrix cpetencies',
-            'matrix meta-services'
-          ]
-        },
-        {
-          question: 'Rapidiously matrix magnetic ideas without intuitive',
-          questionImageUrl: '',
-          questionAnswer: "multidisciplinary mindshare",
-          questionOptions: [
-            'multidisciplinary mindshare',
-            'whereas impactful',
-            'Appropriately facilitate ',
-            'matrix magnetic ideas '
+          id: 2,
+          quizId: 1,
+          question: 'Select a book written by Harry jane',
+          imageUrl: '',
+          answer: "The Adventres of Huckleberry Finn",
+          options: [
+            {
+              id: 5,
+              questionId: 2,
+              value: 'The Adventres of Huckleberry Finn'
+            },
+            {
+              id: 6,
+              questionId: 2,
+              value: 'world-cass experiences'
+            },
+            {
+              id: 7,
+              questionId: 2,
+              value: 'maintain ore competencies'
+            },
+            {
+              id: 8,
+              questionId: 2,
+              value: 'efficient meta-ervices'
+            }
           ]
         }
       ]
     }
   ]
 }
+
 const state = {
   quizList: data.quizList
 }

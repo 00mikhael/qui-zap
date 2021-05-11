@@ -12,7 +12,7 @@ import Logo from '../Logo'
 import Nav from '../Nav'
 import HomePage from '../HomePage'
 import PlayPage from '../PlayPage'
-import AddPage from '../AddPage'
+import CreatePage from '../CreatePage'
 
 import {shuffleList, randomItem} from '../../utils/util'
 
@@ -38,9 +38,9 @@ const App = ({quizList}) => {
 
             <Logo className={`border-2 rounded-bl-2xl rounded-t-2xl border-fuchsia-600 px-2 py-1 text-fuchsia-600 hover:bg-fuchsia-600 hover:text-white text-xl font-sans font-bold cursor-pointer`}>Q</Logo>
             <Nav className={`flex space-x-4`}>
-              <Link className={`px-4 py-2 cursor-pointer hover:bg-fuchsia-200 rounded font-semibold text-fuchsia-600`} to="/add">ADD QUIZ
+              <Link className={`px-4 py-2 cursor-pointer hover:bg-fuchsia-200 focus:bg-fuchsia-200 rounded font-semibold text-fuchsia-600`} to="/create">CREATE
               </Link>
-              <Link className={`bg-fuchsia-600 rounded text-fuchsia-50 px-4 py-2 cursor-pointer hover:bg-fuchsia-700 font-semibold`} to="/play">PLAY
+              <Link className={`bg-fuchsia-600 rounded text-fuchsia-50 px-4 py-2 cursor-pointer hover:bg-fuchsia-700 focus:bg-fuchsia-700 font-semibold`} to="/play">PLAY
               </Link>
 
               {/* <HiOutlineMenuAlt4 className={`text-xl w-8 h-8 text-fuchsia-600`} />*/}
@@ -61,8 +61,8 @@ const App = ({quizList}) => {
             <Route exact path="/play">
               <PlayPage quiz={currentQuiz} />
             </Route>
-            <Route exact path="/add">
-              <AddPage />
+            <Route exact path="/create">
+              <CreatePage />
             </Route>
           </Switch>
 

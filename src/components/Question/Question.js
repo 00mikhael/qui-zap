@@ -8,13 +8,13 @@ const Question = ({quizImage, question, onAnswerSelected, selectedOption, answer
       <div className={`col-start-2 col-end-4 row-span-1 mb-8 text-center text-gray-700 w-full`}>
         {question.question}
       </div>
-      <QuestionImage questionImage={question.questionImageUrl} quizImage={quizImage} />
+      <QuestionImage questionImage={question.imageUrl} quizImage={quizImage} />
       <QuestionOptions>
-        {question.questionOptions.map(option => (
+        {question.options.map(option => (
           <Option
-          key={option}
+          key={option.id}
           option={option}
-          isSelected={selectedOption === option}
+          isSelected={selectedOption?.value === option.value}
           answerStatus={answerStatus}
           onAction={() => onAnswerSelected(question, option)}/>
         ))}
@@ -46,7 +46,7 @@ const Option = ({option, isSelected, answerStatus, onAction}) => {
   }
 
   return (
-    <div onClick={onAction} className={`${highlight()} w-full md:w-11/12  rounded-tr-lg rounded-bl-lg text-base text-gray-700 border-l-8 border-fuchsia-300 p-4 mb-4 shadow hover:shadow-md cursor-pointer`}>{option}</div>
+    <div onClick={onAction} className={`${highlight()} w-full md:w-11/12  rounded-tr-lg rounded-bl-lg text-base text-gray-700 border-l-8 border-fuchsia-300 p-4 mb-4 shadow hover:shadow-md cursor-pointer`}>{option.value}</div>
   );
 }
 

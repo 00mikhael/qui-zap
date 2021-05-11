@@ -5,8 +5,8 @@ const randomItem = (list) => sample(list);
 const shuffleList = (list) => shuffle(list);
 
 const getImageIfAny = (quiz) => {
-    const images = quiz.quizQuestions.reduce((total, question) => {
-        return total.concat(question.questionImageUrl);
+    const images = quiz.questionList.reduce((total, question) => {
+        return total.concat(question.imageUrl);
     },[])
     for (let img of images) {
         if (img) {
