@@ -25,12 +25,11 @@ const CreatePage = () => {
       setCoverImage('')
       inputFileRef.current.value = null;
       return;
-    }
-    setUploading(true);
-
-    if (event.target.files[0]) {
-      let file = event.target.files[0];
-      setCoverImage(URL.createObjectURL(file))
+    } else if (event.target.files) {
+        setUploading(true);
+        let file = event.target.files[0];
+        setCoverImage(URL.createObjectURL(file))
+        setUploading(false);
     }
 
     // let reader = new FileReader();
@@ -43,7 +42,7 @@ const CreatePage = () => {
     // reader.readAsDataURL(file);
 
     // setCoverImage(cover);
-    setUploading(false);
+
   }
 
   return (
