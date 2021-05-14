@@ -7,9 +7,12 @@
     "@craco/craco": "^6.1.1",
     "@testing-library/react": "^11.2.6",
     "axios": "^0.21.1",
+    "cloudinary": "^1.25.1",
+    "express-form-data": "^2.0.16",
     "formik": "^2.2.6",
     "json-server": "^0.16.3",
     "moment": "^2.29.1",
+    "mongodb": "^3.6.6",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -18,10 +21,11 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "redux": "^4.1.0",
+    "swr": "^0.5.6",
     "yup": "^0.32.9"
   },
   "scripts": {
-    "start": "craco start",
+    "start": "vercel dev",
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject"

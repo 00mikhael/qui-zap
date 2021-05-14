@@ -1,0 +1,14 @@
+export const CREATE_QUIZ = 'CREATE_QUIZ';
+export const FETCH_QUIZ = 'FETCH_QUIZ';
+export const UPDATE_QUIZ = 'UPDATE_QUIZ';
+export const DELETE_QUIZ = 'DELETE_QUIZ';
+
+export const ADD_QUESTIONS = 'ADD_QUESTION';
+export const FETCH_QUESTIONS = 'FETCH_QUESTION';
+export const UPDATE_QUESTIONS = 'UPDATE_QUESTION';
+export const DELETE_QUESTIONS = 'DELETE_QUESTION';
+
+export const ADD_OPTIONS = 'ADD_OPTION';
+export const FETCH_OPTIONS= 'FETCH_OPTION';
+export const UPDATE_OPTIONS = 'UPDATE_OPTION';
+export const DELETE_OPTIONS = 'DELETE_OPTION';

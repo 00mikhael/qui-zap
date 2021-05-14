@@ -1,32 +1,34 @@
-import React, {useState} from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import * as ReactRedux from 'react-redux'
 
 // import {HiOutlineMenuAlt4, HiOutlineX} from 'react-icons/hi'
 
 import Logo from '../Logo'
 import Nav from '../Nav'
 import HomePage from '../HomePage'
-import PlayPage from '../PlayPage'
+// import PlayPage from '../PlayPage'
 import CreatePage from '../CreatePage'
 
-import {shuffleList, randomItem} from '../../utils/util'
+// import { randomItem } from '../../utils/util'
 
+const mapStateToProps = (state) => {
+  return {
+    quizList: state.quizList
+  };
+}
 
-const App = ({quizList}) => {
+const mapDispatchToProps = () => ({})
 
-  // eslint-disable-next-line
-  const [allQuiz, setAllQuiz] = useState(shuffleList(quizList));
+const App = ReactRedux.connect(mapStateToProps, mapDispatchToProps) ((props) => {
 
-  const [currentQuiz, setCurrentQuiz] = useState(randomItem(quizList));
+  // const [currentQuiz, setCurrentQuiz] = useState(randomItem(props.quizList));
 
   const handleClick = (item) => {
-    setCurrentQuiz(item)
+    // setCurrentQuiz(item)
   }
+
+
 
   return (
 
@@ -56,10 +58,11 @@ const App = ({quizList}) => {
 
           <Switch>
             <Route exact path="/">
-              <HomePage onAction={handleClick} quizList={allQuiz} />
+              <HomePage onAction={handleClick} quizList={props.quizList} />
             </Route>
             <Route exact path="/play">
-              <PlayPage quiz={currentQuiz} />
+              {/* <PlayPage quiz={currentQuiz} /> */}
+              {/* <PlayPage /> */}
             </Route>
             <Route exact path="/create">
               <CreatePage />
@@ -80,6 +83,6 @@ const App = ({quizList}) => {
     </Router>
 
   );
-};
+});
 
 export default App;
