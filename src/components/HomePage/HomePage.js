@@ -13,10 +13,11 @@ const HomePage = ({quizList, onAction}) => {
     <>
       <Board left={<AppTitle/>} right={<AppDescription />} />
       <QuizList>
-        {quizList.map(quizItem => (
+        {!quizList ? <div>Loading data...</div>
+        : <>{quizList.map(quizItem => (
           <QuizItem onAction={() => onAction(quizItem)} key={quizItem._id} showName={true} quiz={quizItem} />
         ))}
-        <QuizAdd />
+        <QuizAdd /></>}
       </QuizList>
     </>
   );

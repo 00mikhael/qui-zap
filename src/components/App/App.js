@@ -1,6 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 import * as ReactRedux from 'react-redux'
+import useSWR from 'swr'
 
 // import {HiOutlineMenuAlt4, HiOutlineX} from 'react-icons/hi'
 
@@ -11,6 +13,18 @@ import HomePage from '../HomePage'
 import CreatePage from '../CreatePage'
 
 // import { randomItem } from '../../utils/util'
+import fetcher from '../../utils/fetcher'
+
+
+
+
+const mapDispatchToProps = (dispatch, props) => {
+  return {
+    onFetchAll: (initialState) => {
+      dispatch({type: 'FETCH_ALL_QUIZ', payload: initialState});
+    }
+  };
+}
 
 const mapStateToProps = (state) => {
   return {
@@ -18,9 +32,12 @@ const mapStateToProps = (state) => {
   };
 }
 
-const mapDispatchToProps = () => ({})
-
 const App = ReactRedux.connect(mapStateToProps, mapDispatchToProps) ((props) => {
+
+  const {data, error} = useSWR('/api/quizList', fetcher)
+
+  if (error) return <div>an error occurred... {error.message}</div>
+  if (data) props.onFetchAll(data);
 
   // const [currentQuiz, setCurrentQuiz] = useState(randomItem(props.quizList));
 
@@ -53,10 +70,8 @@ const App = ReactRedux.connect(mapStateToProps, mapDispatchToProps) ((props) => 
         </header>
 
 
-
         <main className={`px-4 w-full md:mx-auto md:max-w-4xl lg:max-w-5xl xl:max-w-6xl flex-1`}>
-
-          <Switch>
+          { <Switch>
             <Route exact path="/">
               <HomePage onAction={handleClick} quizList={props.quizList} />
             </Route>
@@ -67,8 +82,7 @@ const App = ReactRedux.connect(mapStateToProps, mapDispatchToProps) ((props) => 
             <Route exact path="/create">
               <CreatePage />
             </Route>
-          </Switch>
-
+          </Switch> }
         </main>
 
 
@@ -81,7 +95,6 @@ const App = ReactRedux.connect(mapStateToProps, mapDispatchToProps) ((props) => 
       </div>
 
     </Router>
-
   );
 });
 

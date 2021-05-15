@@ -25,7 +25,8 @@
     "yup": "^0.32.9"
   },
   "scripts": {
-    "start": "vercel dev",
+    "vercel": "vercel dev",
+    "start": "craco start",
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject"

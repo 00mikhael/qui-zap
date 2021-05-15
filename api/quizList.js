@@ -6,7 +6,7 @@ module.exports = async (req, res) => {
 
     const collection = await db.collection('quizlist')
 
-    const quizList = await collection.find({}).toArray()
+    const quizList = await collection.find().toArray()
 
-    res.status(200).json({quizList})
+    res.status(200).json({quizList});
 }

@@ -1,18 +1,18 @@
 import React, {useState, useRef} from "react";
 import {withRouter} from 'react-router-dom'
-import * as ReactRedux from 'react-redux'
+// import * as ReactRedux from 'react-redux'
 
 import {ImSpinner10} from 'react-icons/im'
 import {IoImageOutline} from 'react-icons/io5'
 import {HiOutlineX} from 'react-icons/hi'
 
-const mapDispatchToProps = (dispatch, props) => ({
-  onQuizCreated: () => dispatch({
-    type: 'REFRESH_QUIZ_LIST'
-  })
-})
+// const mapDispatchToProps = (dispatch, props) => ({
+//   onQuizCreated: () => dispatch({
+//     type: 'REFRESH_QUIZ_LIST'
+//   })
+// })
 
-const CreatePage = withRouter(ReactRedux.connect(() => ({}), mapDispatchToProps)((props) => {
+const CreatePage = withRouter((props) => {
 
   const inputTitleRef = useRef()
   const inputDescRef = useRef()
@@ -126,6 +126,6 @@ const CreatePage = withRouter(ReactRedux.connect(() => ({}), mapDispatchToProps)
         </button>
       </form>
   );
-}));
+});
 
 export default (CreatePage);

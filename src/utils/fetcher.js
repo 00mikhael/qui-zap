@@ -1,3 +1,3 @@
-const fetcher = (...args) => fetch(...args).then(res => res.json()).then(data => data);
-
+import axios from 'axios'
+const fetcher = (...args) => axios.get(...args).then(res => res.data)
 export default fetcher
