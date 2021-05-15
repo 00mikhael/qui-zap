@@ -1,6 +1,7 @@
 {
     "version": 2,
     "env": {
-        "MONGODB_URI": "@quizap-mongodb-uri"
+        "MONGODB_URI": "@quizap-mongodb-uri",
+        "MONGODB_DB": "@quizap-mongodb_db"
     }
 }
