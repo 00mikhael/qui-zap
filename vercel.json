@@ -6,6 +6,6 @@
         "CLOUDINARY_CLOUD_NAME": "@cloud-name",
         "CLOUDINARY_API_KEY": "@cloud-api-key",
         "CLOUDINARY_API_SECRET": "@cloud-api-secret",
-        "CLOUDINARY_QUIZAP_URL": "@cloud-url"
+        "CLOUDINARY_QUIZAP_URL": "@cloud-url-quizap"
     }
 }
