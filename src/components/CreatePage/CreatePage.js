@@ -29,11 +29,10 @@ const CreatePage = withRouter((props) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(quiz),
     });
+    props.history.push('/')
 
     if (upload.ok) {
       console.log('Quiz created to db!');
-      props.onQuizCreated()
-      props.history.push('/')
     } else {
       console.error('Quiz creation failed.');
     }
