@@ -2,6 +2,10 @@
     "version": 2,
     "env": {
         "MONGODB_URI": "@quizap-mongodb-uri",
-        "MONGODB_DB": "@quizap-mongodb_db"
+        "MONGODB_DB": "@quizap-mongodb_db",
+        "CLOUDINARY_CLOUD_NAME": "@cloud-name",
+        "CLOUDINARY_API_KEY": "@cloud-api-key",
+        "CLOUDINARY_API_SECRET": "@cloud-api-secret",
+        "CLOUDINARY_QUIZAP_URL": "@cloud-url"
     }
 }

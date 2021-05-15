@@ -9,4 +9,5 @@ module.exports = async (req, res) => {
     const quizList = await collection.find().toArray()
 
     res.status(200).json({quizList});
+
 }
