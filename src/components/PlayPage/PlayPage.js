@@ -1,58 +1,59 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
+//, {useState, useEffect}
 
 import Board from '../Board'
-import Quiz from '../Quiz'
-import Question from '../Question'
+// import Quiz from '../Quiz'
+// import Question from '../Question'
 
-import {randomItem} from '../../utils/util'
+// import {randomItem} from '../../utils/util'
 
 
 const PlayPage = ({quiz}) => {
 
-  const [question, setQuestion] = useState(randomItem(quiz.questionList));
-  const [selected, setSelected] = useState();
-  const [answerStatus, setAnswerStatus] = useState();
+  // const [question, setQuestion] = useState(randomItem(quiz.questionList));
+  // const [selected, setSelected] = useState();
+  // const [answerStatus, setAnswerStatus] = useState();
 
-  const handleAnswerSelected = (question, selected) => {
-    if (question.answer === selected.value) {
-      setAnswerStatus('correct')
-    } else if (question.questionAnswer !== selected.value) {
-      setAnswerStatus('wrong')
-    }
-    setSelected(selected);
-  }
+  // const handleAnswerSelected = (question, selected) => {
+  //   if (question.answer === selected.value) {
+  //     setAnswerStatus('correct')
+  //   } else if (question.questionAnswer !== selected.value) {
+  //     setAnswerStatus('wrong')
+  //   }
+  //   setSelected(selected);
+  // }
 
-  useEffect(() => {
-    let timer;
+  // useEffect(() => {
+  //   let timer;
 
-    if (timer) {
-      clearTimeout(timer)
-    }
+  //   if (timer) {
+  //     clearTimeout(timer)
+  //   }
 
-    if (answerStatus === 'correct') {
-      timer = setTimeout(() => {
-        setQuestion(randomItem(quiz.questionList));
-        setAnswerStatus('not answered')
-      }, 1000);
-    } else {
-      timer = setTimeout(() => {
-        setAnswerStatus('not answered')
-      }, 500);
-    }
+  //   if (answerStatus === 'correct') {
+  //     timer = setTimeout(() => {
+  //       setQuestion(randomItem(quiz.questionList));
+  //       setAnswerStatus('not answered')
+  //     }, 1000);
+  //   } else {
+  //     timer = setTimeout(() => {
+  //       setAnswerStatus('not answered')
+  //     }, 500);
+  //   }
 
-    return () => clearTimeout(timer)
+  //   return () => clearTimeout(timer)
 
-    //eslint-disable-next-line
-  },[selected])
+  //   //eslint-disable-next-line
+  // },[selected])
 
 
   return (
     <div className={``}>
       <Board className={`h-64`} left={<QuizTitleDescription title={quiz.name} description={quiz.description} creator={quiz.creator}
       />} right={<StartButton />} />
-      <Quiz>
+      {/* <Quiz>
         <Question selectedOption={selected} answerStatus={answerStatus} onAnswerSelected={handleAnswerSelected} quizImage={quiz.imageUrl} question={question} />
-      </Quiz>
+      </Quiz> */}
     </div>
   );
 };

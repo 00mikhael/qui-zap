@@ -1,51 +1,25 @@
-import React from "react";
+import React, {useState} from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import * as ReactRedux from 'react-redux'
-import useSWR from 'swr'
+
 
 // import {HiOutlineMenuAlt4, HiOutlineX} from 'react-icons/hi'
 
 import Logo from '../Logo'
 import Nav from '../Nav'
+import QuizAdd from '../QuizAdd'
 import HomePage from '../HomePage'
-// import PlayPage from '../PlayPage'
+import PlayPage from '../PlayPage'
 import CreatePage from '../CreatePage'
 
-// import { randomItem } from '../../utils/util'
-import fetcher from '../../utils/fetcher'
 
+const App =  () => {
 
-
-
-const mapDispatchToProps = (dispatch, props) => {
-  return {
-    onFetchAll: (initialState) => {
-      dispatch({type: 'FETCH_ALL_QUIZ', payload: initialState});
-    }
-  };
-}
-
-const mapStateToProps = (state) => {
-  return {
-    quizList: state.quizList
-  };
-}
-
-const App = ReactRedux.connect(mapStateToProps, mapDispatchToProps) ((props) => {
-
-  const {data, error} = useSWR('/api/quizList', fetcher)
-
-  if (error) return <div>an error occurred... {error.message}</div>
-  if (data) props.onFetchAll(data);
-
-  // const [currentQuiz, setCurrentQuiz] = useState(randomItem(props.quizList));
+  const [currentQuiz, setCurrentQuiz] = useState({});
 
   const handleClick = (item) => {
-    // setCurrentQuiz(item)
+    setCurrentQuiz(item)
   }
-
-
 
   return (
 
@@ -57,9 +31,9 @@ const App = ReactRedux.connect(mapStateToProps, mapDispatchToProps) ((props) => 
 
             <Logo className={`border-2 rounded-bl-2xl rounded-t-2xl border-fuchsia-600 px-2 py-1 text-fuchsia-600 hover:bg-fuchsia-600 hover:text-white text-xl font-sans font-bold cursor-pointer`}>Q</Logo>
             <Nav className={`flex space-x-4`}>
-              <Link className={`px-4 py-2 cursor-pointer hover:bg-fuchsia-200 focus:bg-fuchsia-200 rounded font-semibold text-fuchsia-600`} to="/create">CREATE
-              </Link>
-              <Link className={`bg-fuchsia-600 rounded text-fuchsia-50 px-4 py-2 cursor-pointer hover:bg-fuchsia-700 focus:bg-fuchsia-700 font-semibold`} to="/play">PLAY
+              {/* <Link className={`px-4 py-2 cursor-pointer hover:bg-fuchsia-200 focus:bg-fuchsia-200 rounded font-semibold text-fuchsia-600`} to="/create">CREATE
+              </Link> */}
+              <Link className={`bg-fuchsia-600 rounded text-fuchsia-50 px-4 py-2 cursor-pointer hover:bg-fuchsia-700 focus:bg-fuchsia-700 font-semibold`} to="/create">CREATE
               </Link>
 
               {/* <HiOutlineMenuAlt4 className={`text-xl w-8 h-8 text-fuchsia-600`} />*/}
@@ -70,14 +44,16 @@ const App = ReactRedux.connect(mapStateToProps, mapDispatchToProps) ((props) => 
         </header>
 
 
-        <main className={`px-4 w-full md:mx-auto md:max-w-4xl lg:max-w-5xl xl:max-w-6xl flex-1`}>
+        <main className={`px-4 w-full md:mx-auto md:max-w-4xl lg:max-w-5xl xl:max-w-6xl flex-1 flex flex-col`}>
           { <Switch>
             <Route exact path="/">
-              <HomePage onAction={handleClick} quizList={props.quizList} />
+              <div className={`bg-fuchsia-200 flex flex-col rounded-md overflow-hidden min-h-full flex-1`} >
+                <HomePage className={`flex-1`} onAction={handleClick} />
+                <QuizAdd />
+              </div>
             </Route>
             <Route exact path="/play">
-              {/* <PlayPage quiz={currentQuiz} /> */}
-              {/* <PlayPage /> */}
+              <PlayPage quiz={currentQuiz} />
             </Route>
             <Route exact path="/create">
               <CreatePage />
@@ -96,6 +72,6 @@ const App = ReactRedux.connect(mapStateToProps, mapDispatchToProps) ((props) => 
 
     </Router>
   );
-});
+};
 
 export default App;

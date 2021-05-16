@@ -8,13 +8,13 @@ import styles from './QuizItem.module.css'
 // import {getImageIfAny} from '../../utils/util'
 
 
-const QuizItem = ({quiz, onAction}) => {
+const QuizItem = ({quiz, onAction, noFlex}) => {
 
   // const anyQuestionImage = getImageIfAny(quiz)
   const anyQuestionImage = ''
 
   return (
-    <Link onClick={onAction} style={{flexBasis: "12.5rem", width: "12.5rem", height: "auto"}} className={`flex-grow h-80 xl:flex-none bg-fuchsia-200 cursor-pointer shadow-md hover:shadow-md rounded-md overflow-hidden mt-4 flex justify-center relative`} to="/play">
+    <Link onClick={onAction} style={{flexBasis: "12.5rem", width: "12.5rem", height: "auto"}} className={`flex-grow ${noFlex && `sm:flex-none`} h-80 bg-fuchsia-200 cursor-pointer shadow-md hover:shadow-md rounded-lg m-4 mb-0 overflow-hidden flex justify-center relative`} to="/play">
       {
       (quiz.image_url || anyQuestionImage)
       ? <img width={256} className={`object-cover w-full h-full`} src={quiz.image_url || anyQuestionImage} alt={''} />
