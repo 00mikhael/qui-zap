@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 
 import {VscLoading} from 'react-icons/vsc'
-import Loader from "react-loader-spinner";
 import * as ReactRedux from 'react-redux'
 import useSWR from 'swr'
 
