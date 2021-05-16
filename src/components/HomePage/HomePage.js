@@ -38,8 +38,9 @@ const HomePage = ReactRedux.connect(mapStateToProps, mapDispatchToProps) (({clas
   return (
     <div className={className}>
       <Board left={<AppTitle/>} right={<AppDescription />} />
-      <VscLoading className={`my-4 mx-auto animate-spin ${!(data || error) ? `flex justify-center items-center` : `hidden`}`} color="#A300A3" height={20} width={20} />
-      {error && <div className={`text-fuchsia-600 text-center p-2 font-medium`}>Something went wrong...</div>}
+      <div className={`w-full text-center`}>
+        <VscLoading className={`my-4 mx-auto animate-spin ${!(data || error) ? `flex justify-center items-center` : `hidden`}`} color="#A300A3" height={20} width={20} /></div>
+      {error && <div className={`text-fuchsia-600 text-center my-4 font-medium`}>Something went wrong...</div>}
       <QuizList>
         {quizList && quizList.map(quizItem => (
           <QuizItem onAction={() => onAction(quizItem)} key={quizItem._id} showName={true} quiz={quizItem} noFlex={quizList.length < 6} />
