@@ -10,6 +10,7 @@ import CreatePage from '../CreatePage'
 
 
 const App =  () => {
+
   const [currentQuiz, setCurrentQuiz] = useState({});
   const handleClick = (item) => {
     setCurrentQuiz(item)
@@ -21,8 +22,6 @@ const App =  () => {
         <header className={`sticky top-0 border-b border-fuchsia-200 p-4 flex items-center justify-between bg-white shadow z-30`}>
             <Logo className={`border-2 rounded-bl-2xl rounded-t-2xl border-fuchsia-600 px-2 py-1 text-fuchsia-600 hover:bg-fuchsia-600 hover:text-white text-xl font-sans font-bold cursor-pointer`}>Q</Logo>
             <Nav className={`flex space-x-4`}>
-              {/* <Link className={`px-4 py-2 cursor-pointer hover:bg-fuchsia-200 focus:bg-fuchsia-200 rounded font-semibold text-fuchsia-600`} to="/create">CREATE
-              </Link> */}
               <Link className={`bg-fuchsia-600 rounded text-fuchsia-50 px-4 py-2 cursor-pointer hover:bg-fuchsia-700 focus:bg-fuchsia-700 font-semibold`} to="/create">CREATE
               </Link>
             </Nav>

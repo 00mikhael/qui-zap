@@ -13,12 +13,13 @@ const CreatePage = withRouter((props) => {
   const inputCoverRef = useRef()
 
   const [coverImage, setCoverImage] = useState('')
-  const [uploading, setUploading] = useState(false)
+  const [imageFiles, setImageFiles] = useState([])
   const [creating, setCreating] = useState(false)
 
+  // const valid = inputTitleRef.current.value
+  // && inputDescRef.current.value && inputCreatorRef.current.value;
 
   const createQuiz = async (quiz) => {
-    setCreating(true)
     const upload = await fetch('api/createQuiz', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -35,60 +36,71 @@ const CreatePage = withRouter((props) => {
   }
 
 
+  const uploadImage = async () => {
+    const file = imageFiles[0];
+    const filename = encodeURIComponent(file.name);
+    const res = await fetch(`/api/upload?file=${filename}`);
+    const { url, fields } = await res.json();
+
+    const formData = new FormData();
+
+    Object.entries({ ...fields, file }).forEach(([key, value]) => {
+      formData.append(key, value);
+    });
+
+    const upload = await fetch(url, {
+      method: 'POST',
+      body: formData,
+    });
+
+    if (upload.ok) {
+      console.log('Uploaded successfully!');
+      // setCoverImage(upload.json().then(data => data))
+    } else {
+      console.error('Upload failed.');
+    }
+
+    return Promise.resolve();
+  }
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    setCreating(true)
     const quiz = {};
     quiz.name = inputTitleRef.current.value;
     quiz.description = inputDescRef.current.value;
     quiz.creator = inputCreatorRef.current.value;
     quiz.image_url = coverImage;
     if (quiz.name && quiz.description && quiz.creator) {
-      createQuiz(quiz);
+      if (coverImage) {
+        uploadImage().then(()=>{
+          createQuiz(quiz);
+        })
+        .catch(e => {
+          console.log(e.message)
+        })
+      } else {
+        createQuiz(quiz);
+      }
     }
   }
 
   const handleImageRemove = () => {
       setCoverImage('')
+      setImageFiles([])
       inputCoverRef.current.value = null;
   }
 
-  const handleImageChange = async (event) => {
+  const handleImageChange = (event) => {
     if (event.target.files.length > 0) {
-      setUploading(true);
-      setCoverImage('')
-      const file = event.target.files[0];
-      const filename = encodeURIComponent(file.name);
-      const res = await fetch(`/api/upload?file=${filename}`);
-      const { url, fields } = await res.json();
-
-      const formData = new FormData();
-
-      Object.entries({ ...fields, file }).forEach(([key, value]) => {
-        formData.append(key, value);
-      });
-
-      const upload = await fetch(url, {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (upload.ok) {
-        console.log('Uploaded successfully!');
-      } else {
-        console.error('Upload failed.');
-      }
-
-      const imageData = upload.json()
-
-      imageData.then(result => {
-        setCoverImage(result.url)
-      })
-
-      setUploading(false);
+      setCoverImage(URL.createObjectURL(event.target.files[0]))
+      setImageFiles(event.target.files)
       return;
     }
 
     setCoverImage('')
+    setImageFiles([])
     inputCoverRef.current.value = null;
   }
 
@@ -107,10 +119,10 @@ const CreatePage = withRouter((props) => {
           <label className={`font-semibold text-fuchsia-600 text-lg`} htmlFor="creator_name">Created By</label>
           <input ref={inputCreatorRef} className={`px-4 py-2 mt-1 bg-fuchsia-50 rounded-md shadow-inner`}  id="creator_name" type="text" placeholder="Add display name"/>
         </span>
-          <span className={` flex flex-col max-w-min`}>
+          <span className={` flex flex-col w-28`}>
             <label className={`flex items-center font-semibold text-fuchsia-600 text-lg`} htmlFor="quiz_image">Cover Image
             </label>
-            <VscLoading className={`my-4 animate-spin mx-auto ${uploading ? `inline-flex` : `hidden`}`} color="#A300A3" height={20} width={20} />
+            {/* <VscLoading className={`my-4 animate-spin mx-auto ${uploading ? `inline-flex` : `hidden`}`} color="#A300A3" height={20} width={20} /> */}
             <span className={`flex justify-between items-start ${coverImage ? `opacity-100` : `opacity-0 hidden`}`}>
               <img className={`my-1 rounded transition`} width={150} src={coverImage} alt={``} />
             </span>
@@ -121,7 +133,7 @@ const CreatePage = withRouter((props) => {
                   return inputCoverRef.current.click();
                 }
               }} className={`border border-fuchsia-600 rounded text-fuchsia-600 px-4 py-2 cursor-pointer hover:bg-fuchsia-700 focus:bg-fuchsia-700 hover:text-fuchsia-50 font-semibold max-w-min flex items-center justify-center`}>
-                {coverImage ? `Remove` : `Upload`}
+                {coverImage ? `Remove` : `Select`}
                 <IoImageOutline className={`ml-1`} />
             </span>
             <input ref={inputCoverRef} className={`h-0 w-0 opacity-0 invisible pointer-events-none select-none`} id="quiz_image" type="file" accept=".jpg, .jpeg, .png" onChange={handleImageChange} />
