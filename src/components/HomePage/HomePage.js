@@ -42,7 +42,7 @@ const HomePage = ReactRedux.connect(mapStateToProps, mapDispatchToProps) (({clas
       {error && <div className={`text-fuchsia-600 text-center p-2 font-medium`}>Something went wrong...</div>}
       <QuizList>
         {quizList && quizList.map(quizItem => (
-          <QuizItem onAction={() => onAction(quizItem)} key={quizItem._id} showName={true} quiz={quizItem} noFlex={quizList.length < 5} />
+          <QuizItem onAction={() => onAction(quizItem)} key={quizItem._id} showName={true} quiz={quizItem} noFlex={quizList.length < 4} />
         ))}
       </QuizList>
     </div>
