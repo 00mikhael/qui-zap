@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 
+import {VscLoading} from 'react-icons/vsc'
 import Loader from "react-loader-spinner";
 import * as ReactRedux from 'react-redux'
 import useSWR from 'swr'
@@ -38,8 +39,8 @@ const HomePage = ReactRedux.connect(mapStateToProps, mapDispatchToProps) (({clas
   return (
     <div className={className}>
       <Board left={<AppTitle/>} right={<AppDescription />} />
-      <Loader className={`m-4 justify-center ${!(data || error) ? `flex` : `hidden`}`} color="#A300A3" type="ThreeDots" height={20} width={20} />
-      {error && <div className={`text-fuchsia-600 text-center p-2`}>Something went wrong...</div>}
+      <VscLoading className={`my-4 mx-auto animate-spin ${!(data || error) ? `flex` : `hidden`}`} color="#A300A3" height={20} width={20} />
+      {error && <div className={`text-fuchsia-600 text-center p-2 font-medium`}>Something went wrong...</div>}
       <QuizList>
         {quizList && quizList.map(quizItem => (
           <QuizItem onAction={() => onAction(quizItem)} key={quizItem._id} showName={true} quiz={quizItem} noFlex={quizList.length < 5} />
