@@ -49,7 +49,7 @@ const PlayPage = ({quiz}) => {
 
   return (
     <div className={``}>
-      <Board className={`h-64`} left={<QuizTitleDescription title={quiz.name} description={quiz.description} creator={quiz.creator}
+      <Board className={`h-auto`} left={<QuizTitleDescription title={quiz.name} description={quiz.description} creator={quiz.creator}
       />} right={<StartButton />} />
       {/* <Quiz>
         <Question selectedOption={selected} answerStatus={answerStatus} onAnswerSelected={handleAnswerSelected} quizImage={quiz.imageUrl} question={question} />
@@ -66,9 +66,9 @@ const StartButton = () => {
 
 const QuizTitleDescription = ({title, description, creator}) => {
   return (
-    <div className={`flex flex-col space-y-2 col-start-2 col-end-5 sm:col-start-2 sm:col-end-3 row-start-4`}>
+    <div className={`flex flex-col space-y-2 col-start-2 col-end-4 row-start-4`}>
       <span className={`font-extrabold text-3xl text-fuchsia-700`}>{title}</span>
-      <span className={`font-normal text-base text-fuchsia-600`}>{description}</span>
+      <span className={`font-normal text-base text-fuchsia-600 prose prose-sm`}>{description}</span>
       <span className={`font-bold text-fuchsia-600 text-sm text-fuchsia-600 pt-6 items-end`}>{creator}</span>
     </div>
   );

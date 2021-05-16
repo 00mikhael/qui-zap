@@ -5,6 +5,8 @@
   "private": true,
   "dependencies": {
     "@craco/craco": "^6.1.1",
+    "@tailwindcss/line-clamp": "^0.2.0",
+    "@tailwindcss/typography": "^0.4.0",
     "@testing-library/react": "^11.2.6",
     "axios": "^0.21.1",
     "cloudinary": "^1.25.1",

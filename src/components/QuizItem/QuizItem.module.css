@@ -10,8 +10,12 @@
     top: 40%;
 }
 
+/* .item_bg {
+    background-image: linear-gradient(0deg, plum 1%, rgb(221, 160, 221, .1) 25%);
+} */
+
 .item_bg {
-    background-image: linear-gradient(0deg, plum 5%, rgb(221, 160, 221, .1) 40%);
+    background-color: rgba(225, 190, 221, .9);
 }
 
 .item {

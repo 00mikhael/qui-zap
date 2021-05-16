@@ -153,7 +153,7 @@ const CreatePage = withRouter((props) => {
           </span>
         <button style={{marginTop: "2rem"}} className={`bg-fuchsia-600 text-fuchsia-50 p-3 rounded-md focus:outline-none ${creating && `opacity-50 cursor-not-allowed`}`} type="submit">
           Create
-          <VscLoading className={`text-fuchsia-50 hidden animate-spin mx-1 ${creating && `inline-flex`}`}  height={20} width={20} />
+          <VscLoading className={`text-fuchsia-50 animate-spin mx-1 ${creating ? `inline-flex` : `hidden`}`}  height={20} width={20} />
         </button>
       </form>
   );
