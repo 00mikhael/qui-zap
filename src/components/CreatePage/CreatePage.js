@@ -95,7 +95,7 @@ const CreatePage = withRouter((props) => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className={`flex flex-col space-y-4 max-w-md mx-auto`} encType="multipart/form-data">
+    <form onSubmit={handleSubmit} className={`flex flex-col space-y-4 max-w-md mx-auto w-full`} encType="multipart/form-data">
         <h1 className={`font-extrabold text-gray-600 text-5xl my-2 `}>Create Quiz</h1>
         <span className={`flex flex-col`}>
           <label className={`font-semibold text-gray-600 text-lg`} htmlFor="title">Title</label>
