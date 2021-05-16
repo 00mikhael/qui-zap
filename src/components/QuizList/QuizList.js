@@ -1,10 +1,11 @@
 import React from "react";
+import styles from './QuizList.module.css'
 
 
 const QuizList = ({children}) => {
   return (
     <div>
-      <span className={`flex flex-row-reverse flex-wrap-reverse gap-4 m-4 space-x-2 mb-0 justify-center`}>
+      <span className={`${styles.list} flex flex-row-reverse flex-wrap-reverse m-4 mb-0 justify-center`}>
       {children}
       </span>
     </div>

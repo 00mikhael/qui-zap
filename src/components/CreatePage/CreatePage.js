@@ -16,8 +16,6 @@ const CreatePage = withRouter((props) => {
   const [imageFiles, setImageFiles] = useState([])
   const [creating, setCreating] = useState(false)
 
-  // const valid = inputTitleRef.current.value
-  // && inputDescRef.current.value && inputCreatorRef.current.value;
 
   const createQuiz = async (quiz) => {
     const upload = await fetch('api/createQuiz', {
@@ -37,6 +35,7 @@ const CreatePage = withRouter((props) => {
 
 
   const uploadImage = async () => {
+    let imageUrl = '';
     const file = imageFiles[0];
     const filename = encodeURIComponent(file.name);
     const res = await fetch(`/api/upload?file=${filename}`);
@@ -55,32 +54,46 @@ const CreatePage = withRouter((props) => {
 
     if (upload.ok) {
       console.log('Uploaded successfully!');
-      // setCoverImage(upload.json().then(data => data))
+      imageUrl = upload.json().then(data => data.url);
     } else {
+      setCreating(false)
       console.error('Upload failed.');
     }
 
-    return Promise.resolve();
+    return Promise.resolve(imageUrl);
   }
 
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setCreating(true)
+  const buildQuiz = (imageUrl) => {
     const quiz = {};
     quiz.name = inputTitleRef.current.value;
     quiz.description = inputDescRef.current.value;
     quiz.creator = inputCreatorRef.current.value;
-    quiz.image_url = coverImage;
-    if (quiz.name && quiz.description && quiz.creator) {
-      if (coverImage) {
-        uploadImage().then(()=>{
+    quiz.image_url = imageUrl;
+    return quiz;
+  }
+
+
+  const handleSubmit = (event) => {
+    let url = '';
+    event.preventDefault();
+    if (inputTitleRef.current.value
+      && inputDescRef.current.value
+       && inputCreatorRef.current.value) {
+      setCreating(true)
+      if (coverImage && imageFiles.length > 0) {
+        uploadImage().then(imageUrl =>{
+          url = imageUrl;
+          return buildQuiz(imageUrl)
+        })
+        .then(quiz => {
           createQuiz(quiz);
         })
         .catch(e => {
+          setCreating(false)
           console.log(e.message)
         })
       } else {
+        const quiz = buildQuiz(url);
         createQuiz(quiz);
       }
     }

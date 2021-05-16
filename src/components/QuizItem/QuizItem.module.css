@@ -13,3 +13,7 @@
 .item_bg {
     background-image: linear-gradient(0deg, plum 5%, rgb(221, 160, 221, .1) 40%);
 }
+
+.item {
+    opacity: 100;
+}
