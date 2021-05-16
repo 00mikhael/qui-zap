@@ -14,7 +14,7 @@ const QuizItem = ({quiz, onAction, noFlex}) => {
   const anyQuestionImage = ''
 
   return (
-    <Link onClick={onAction} style={{flexBasis: "12.5rem", width: "12.5rem", height: "auto"}} className={`flex-grow ${noFlex && `sm:flex-none`} h-80 bg-fuchsia-200 cursor-pointer shadow-md hover:shadow-md rounded-lg overflow-hidden flex justify-center relative`} to="/play">
+    <Link onClick={onAction} style={{flexBasis: "12.5rem", width: "12.5rem", height: "auto"}} className={`flex-grow ${noFlex && `sm:flex-none`} h-80 mb-4 sm:mb-0 bg-fuchsia-200 cursor-pointer shadow-md hover:shadow-md rounded-lg overflow-hidden flex justify-center relative`} to="/play">
       {
       (quiz.image_url || anyQuestionImage)
       ? <img width={256} className={`object-cover w-full h-full`} src={quiz.image_url || anyQuestionImage} alt={''} />
