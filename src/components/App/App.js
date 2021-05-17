@@ -29,18 +29,22 @@ const App =  () => {
 
         <main className={`px-4 w-full md:mx-auto md:max-w-4xl lg:max-w-5xl xl:max-w-6xl flex-1 flex flex-col`}>
           { <Switch>
+
             <Route exact path="/">
               <div className={`bg-fuchsia-200 flex flex-col rounded-md overflow-hidden min-h-full flex-1`} >
-                <HomePage className={`flex-1`} onAction={handleClick} />
+                <HomePage onAction={handleClick} />
                 <QuizAdd />
               </div>
             </Route>
+
             <Route exact path="/play">
               <PlayPage quiz={currentQuiz} />
             </Route>
+
             <Route exact path="/create">
               <CreatePage />
             </Route>
+
           </Switch> }
         </main>
 

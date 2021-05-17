@@ -1,53 +1,36 @@
-import React, { useEffect } from "react";
-
-import {VscLoading} from 'react-icons/vsc'
-import * as ReactRedux from 'react-redux'
-import useSWR from 'swr'
-
+import React, {Suspense} from "react";
 
 import Board from '../Board'
 import QuizList from '../QuizList'
 import QuizItem from '../QuizItem'
 
-const mapDispatchToProps = (dispatch, props) => {
-  return {
-    onFetchAll: (initialState) => {
-      dispatch({type: 'FETCH_ALL_QUIZ', payload: initialState});
-    }
-  };
-}
-
-const mapStateToProps = (state) => {
-  return {
-    quizList: state.quizList
-  };
-}
+import useQuizList from '../../data/useQuizList'
+import Loading from '../Loading'
 
 
-const HomePage = ReactRedux.connect(mapStateToProps, mapDispatchToProps) (({className, quizList, onAction, onFetchAll}) => {
-
-  const {data, error} = useSWR('/api/quizList');
-
-  useEffect(() => {
-    if (data) {
-      onFetchAll(data);
-    }
-  })
-
+const HomePage = ({ onAction }) => {
   return (
-    <div className={className}>
+    <div className={`flex-1`}>
       <Board left={<AppTitle/>} right={<AppDescription />} />
-      <div className={`w-full text-center`}>
-        <VscLoading className={`my-4 mx-auto animate-spin ${!(data || error) ? `flex justify-center items-center` : `hidden`}`} color="#A300A3" height={20} width={20} /></div>
-      {error && <div className={`text-fuchsia-600 text-center my-4 font-medium`}>Something went wrong...</div>}
       <QuizList>
-        {quizList && quizList.map(quizItem => (
-          <QuizItem onAction={() => onAction(quizItem)} key={quizItem._id} showName={true} quiz={quizItem} noFlex={quizList.length < 6} />
-        ))}
+        <Suspense fallback={<Loading />}>
+          <List onAction={onAction} />
+        </Suspense>
       </QuizList>
     </div>
   );
-});
+};
+
+const List = ({onAction}) => {
+  const { quizList } = useQuizList();
+  return (
+      <>
+        {quizList && quizList?.map(quizItem => (
+          <QuizItem onAction={() => onAction(quizItem)} key={quizItem?._id} showName={true} quiz={quizItem} noFlex={quizList?.length < 6} />
+        ))}
+      </>
+  )
+}
 
 const AppTitle = () => {
   return (

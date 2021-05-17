@@ -10,7 +10,6 @@ import App from './components/App';
 import fetcher from './utils/fetcher'
 
 
-
 const reducer = (state = [], action) => {
 
   switch (action.type) {
@@ -29,8 +28,13 @@ ReactDOM.render(
       <React.StrictMode>
         <SWRConfig value={{
           refreshInterval: 1000,
-          fetcher: fetcher
-        }}>
+          fetcher: fetcher,
+          suspense: true,
+          onErrorRetry: (error, key, config, revalidate, {retryCount}) => {
+            if (error.status === 404) return;
+            if (retryCount >= 10) return;
+            setTimeout(() => {revalidate({retryCount})}, 5000);
+          } }}>
           <App />
         </SWRConfig>
       </React.StrictMode>
