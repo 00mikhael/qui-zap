@@ -8,7 +8,6 @@ import useSWR from 'swr'
 import Board from '../Board'
 import QuizList from '../QuizList'
 import QuizItem from '../QuizItem'
-import fetcher from '../../utils/fetcher'
 
 const mapDispatchToProps = (dispatch, props) => {
   return {
@@ -27,7 +26,7 @@ const mapStateToProps = (state) => {
 
 const HomePage = ReactRedux.connect(mapStateToProps, mapDispatchToProps) (({className, quizList, onAction, onFetchAll}) => {
 
-  const {data, error} = useSWR('/api/quizList', fetcher);
+  const {data, error} = useSWR('/api/quizList');
 
   useEffect(() => {
     if (data) {
