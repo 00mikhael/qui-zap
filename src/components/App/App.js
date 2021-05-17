@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter , Switch, Route, Link } from "react-router-dom";
 
 import Logo from '../Logo'
 import Nav from '../Nav'
@@ -17,7 +17,7 @@ const App =  () => {
   }
 
   return (
-    <Router>
+    <BrowserRouter>
       <div className={`bg-blueGray-50 min-h-screen border-t-2 border-fuchsia-600 space-y-4 flex flex-col`}>
         <header className={`sticky top-0 border-b border-fuchsia-200 p-4 flex items-center justify-between bg-white shadow z-30`}>
             <Logo className={`border-2 rounded-bl-2xl rounded-t-2xl border-fuchsia-600 px-2 py-1 text-fuchsia-600 hover:bg-fuchsia-600 hover:text-white text-xl font-sans font-bold cursor-pointer`}>Q</Logo>
@@ -53,7 +53,7 @@ const App =  () => {
           <small className={`text-fuchsia-500 self-center`}>With <span className={`text-red-600`}>&hearts;</span> from <a className={`border-b-2 border-fuchsia-600 text-fuchsia-600 `}  target="_blank" rel="noreferrer" href="https://github.com/mikhaelnwankwo/qui-zap">Quizap HQ</a></small>
         </footer>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 };
 
