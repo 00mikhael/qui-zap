@@ -23,11 +23,21 @@ const HomePage = ({ onAction }) => {
 
 const List = ({onAction}) => {
   const { quizList } = useQuizList();
+
+
+  const list  = quizList.map((quizItem) => {
+      return (
+        <QuizItem onAction={() => onAction(quizItem)} key={quizItem._id} showName={true} quiz={quizItem} />
+      )
+  });
+
+
   return (
       <>
-        {quizList && quizList?.map(quizItem => (
+      {list.reverse()}
+        {/* {quizList && quizList?.reverse()?.map(quizItem => (
           <QuizItem onAction={() => onAction(quizItem)} key={quizItem?._id} showName={true} quiz={quizItem} noFlex={quizList?.length < 6} />
-        ))}
+        ))} */}
       </>
   )
 }

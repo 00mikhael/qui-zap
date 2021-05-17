@@ -15,15 +15,17 @@ const QuizItem = ({quiz, onAction, noFlex}) => {
   const anyQuestionImage = ''
 
   return (
-    <Link onClick={onAction} style={{flexBasis: "18.5rem", width: "14.5rem", height: "400px"}} className={`${styles.item} flex-grow  h-80 m-2 sm:mb-0 bg-fuchsia-200 cursor-pointer shadow-md hover:shadow-md rounded-lg overflow-hidden flex justify-center relative`} to="/play">
+    <Link onClick={onAction} style={{flexBasis: "18.5rem", width: "14.5rem", height: "450px", maxWidth: "550px"}} className={`${styles.item} flex-grow h-80 m-2 sm:mb-0 bg-fuchsia-200 cursor-pointer shadow-md hover:shadow-md rounded-lg overflow-hidden flex justify-center relative`} to="/play">
+
       {
       (quiz.image_url || anyQuestionImage)
-      ? <SimpleImg placeholder="false"  height={400} imgStyle={{objectFit: "cover", objectPosition: "top", width: "100%", borderRadius: "8px", height: "100%"}} src={quiz.image_url || anyQuestionImage} alt={''} />
+      ? <SimpleImg placeholder="false"  height={450} imgStyle={{objectFit: "cover", objectPosition: "center", width: "100%", borderRadius: "8px", height: "100%"}} src={quiz.image_url || anyQuestionImage} alt={''} />
       : <span className={`h-80 w-full`}></span>
       }
+
       {/* {
       (quiz.image_url || anyQuestionImage)
-      ? <img width={256} className={`object-cover object-top rounded-lg w-full h-full`} src={quiz.image_url || anyQuestionImage} alt={''} />
+      ? <img width={256} className={`object-cover object-center rounded-lg w-full h-full`} src={quiz.image_url || anyQuestionImage} alt={''} />
       : <span className={`h-80 w-full`}></span>
       } */}
       {!(quiz.image_url || anyQuestionImage) && <span className={`bg-fuchsia-500 p-6 w-24 h-24 rounded-t-full rounded-bl-full flex justify-center items-center  shadow-md z-10 absolute ${styles.question_mark_opacity}`}>
