@@ -15,11 +15,11 @@ const QuizItem = ({quiz, onAction, noFlex}) => {
   const anyQuestionImage = ''
 
   return (
-    <Link onClick={onAction} style={{flexBasis: "18.5rem", width: "14.5rem", height: "450px", maxWidth: "550px"}} className={`${styles.item} flex-grow h-80 m-2 sm:mb-0 bg-fuchsia-200 cursor-pointer shadow-md hover:shadow-md rounded-lg overflow-hidden flex justify-center relative`} to="/play">
+    <Link onClick={onAction} style={{flexBasis: "18.5rem", width: "14.5rem", height: "400px", maxWidth: "550px"}} className={`${styles.item} flex-grow h-80 m-2 sm:mb-0 bg-fuchsia-200 cursor-pointer shadow-md hover:shadow-md rounded-lg overflow-hidden flex justify-center relative`} to="/play">
 
       {
       (quiz.image_url || anyQuestionImage)
-      ? <SimpleImg placeholder="false"  height={450} imgStyle={{objectFit: "cover", objectPosition: "center", width: "100%", borderRadius: "8px", height: "100%"}} src={quiz.image_url || anyQuestionImage} alt={''} />
+      ? <SimpleImg placeholder="false"  height={400} imgStyle={{objectFit: "cover", objectPosition: "center", width: "100%", borderRadius: "8px", height: "100%"}} src={quiz.image_url || anyQuestionImage} alt={''} />
       : <span className={`h-80 w-full`}></span>
       }
 
