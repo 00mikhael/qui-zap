@@ -94,7 +94,7 @@ const Playground = ({id}) => {
 
 const StartButton = () => {
   return (
-    <button className={`justify-self-end col-start-3  border border-fuchsia-600 rounded text-fuchsia-600 max-w-min px-6 py-2 cursor-pointer hover:bg-fuchsia-700 hover:text-fuchsia-50 font-semibold`}>Start</button>
+    <button className={`justify-self-end col-start-3 rounded max-w-min px-6 py-2 cursor-pointer border border-fuchsia-600 text-fuchsia-600 hover:bg-fuchsia-600 hover:text-white font-medium`}>Start</button>
   );
 }
 

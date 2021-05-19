@@ -145,7 +145,7 @@ const CreatePage = withRouter((props) => {
                 } else {
                   return inputCoverRef.current.click();
                 }
-              }} className={`border border-fuchsia-600 rounded text-fuchsia-600 px-4 py-2 cursor-pointer hover:bg-fuchsia-700 focus:bg-fuchsia-700 hover:text-fuchsia-50 font-semibold max-w-min flex items-center justify-center`}>
+              }} className={`rounded px-6 py-2 cursor-pointer border border-fuchsia-600 text-fuchsia-600 hover:bg-fuchsia-600 hover:text-white font-medium flex items-center justify-center`}>
                 {coverImage ? `Remove` : `Select`}
                 <IoImageOutline className={`ml-1`} />
             </span>
