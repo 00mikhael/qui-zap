@@ -1,7 +1,7 @@
 import useSWR from 'swr';
 
 const useQuiz = (id) => {
-    const { data, mutate } = useSWR('/api/quizList', {refreshInterval = 0});
+    const { data, mutate } = useSWR('/api/quizList', {refreshInterval: 0});
     const { quizList } = data;
 
     const quiz = quizList.find(q => {
