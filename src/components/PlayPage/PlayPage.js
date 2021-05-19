@@ -103,7 +103,7 @@ const QuizTitleDescription = ({title, description, creator}) => {
 
   return (
     <div className={`flex flex-col space-y-2 justify-self-start col-span-full row-start-4 mb-24 mx-6`}>
-      <span className={`font-extrabold text-3xl text-fuchsia-700`}>{title}</span>
+      <span className={`font-extrabold text-3xl text-fuchsia-700 break-all`}>{title}</span>
       <span className={`font-normal text-base text-fuchsia-600 break-all prose prose-sm`}>{description}</span>
       <span className={`font-bold text-fuchsia-600 text-sm text-fuchsia-600 pt-6 items-end`}>{creator}</span>
     </div>
