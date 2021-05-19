@@ -45,7 +45,7 @@ const List = () => {
 
 const AppTitle = () => {
   return (
-    <span style={{writingMode: "vertical-rl", textOrientation: "upright"}} className={`welcome space-y-4 text-2xl sm:text-4xl font-extrabold  mx-1 col-start-1 col-end-2 justify-self-start h-full text-center`}>
+    <span style={{writingMode: "vertical-rl", textOrientation: "upright"}} className={`welcome space-y-4 text-4xl font-extrabold  m-7 col-start-1 col-end-2 justify-self-start h-full text-center`}>
       <span className={`border-2 rounded-bl-2xl rounded-t-2xl border-fuchsia-600 px-2 py-1 bg-fuchsia-700 text-white text-xl font-sans font-bold shadow-inner`}>QUI</span>
       <span className={`text-fuchsia-700`}>ZAP</span>
     </span>

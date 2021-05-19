@@ -118,19 +118,19 @@ const CreatePage = withRouter((props) => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className={`flex flex-col space-y-4 max-w-md p-6 mx-auto w-full`} encType="multipart/form-data">
+    <form onSubmit={handleSubmit} className={`flex flex-col space-y-4 p-6 mx-auto w-full max-w-lg`} encType="multipart/form-data">
         <h1 className={`font-extrabold text-fuchsia-600 text-5xl my-2 `}>Create Quiz</h1>
         <span className={`flex flex-col`}>
           <label className={`font-semibold text-fuchsia-600 text-lg`} htmlFor="title">Title</label>
-          <input ref={inputTitleRef} className={`px-4 py-2 bg-fuchsia-50 rounded-md shadow-inner`} id="title" type="text" placeholder="Enter quiz title"/>
+          <input ref={inputTitleRef} className={`px-4 py-2 bg-fuchsia-50 rounded-md shadow-inner`} id="title" type="text" placeholder="Enter quiz title" maxLength={20}/>
         </span>
         <span className={`flex flex-col`}>
           <label className={`font-semibold text-fuchsia-600 text-lg`} htmlFor="description">Describe</label>
-          <textarea ref={inputDescRef} className={`px-4 py-2 mt-1 bg-fuchsia-50 rounded-md shadow-inner resize-none`}  id="description" type="text" placeholder="Enter quiz description"/>
+          <textarea ref={inputDescRef} className={`px-4 py-2 mt-1 bg-fuchsia-50 rounded-md shadow-inner resize-none`}  id="description" type="text" placeholder="Enter quiz description" maxLength={150}/>
         </span>
         <span className={`flex flex-col`}>
           <label className={`font-semibold text-fuchsia-600 text-lg`} htmlFor="creator_name">Created By</label>
-          <input ref={inputCreatorRef} className={`px-4 py-2 mt-1 bg-fuchsia-50 rounded-md shadow-inner`}  id="creator_name" type="text" placeholder="Add display name"/>
+          <input ref={inputCreatorRef} className={`px-4 py-2 mt-1 bg-fuchsia-50 rounded-md shadow-inner`}  id="creator_name" type="text" placeholder="Add display name" maxLength={15}/>
         </span>
           <span className={` flex flex-col w-28`}>
             <label className={`flex items-center font-semibold text-fuchsia-600 text-lg`} htmlFor="quiz_image">Cover Image
@@ -145,7 +145,7 @@ const CreatePage = withRouter((props) => {
                 } else {
                   return inputCoverRef.current.click();
                 }
-              }} className={`rounded px-6 py-2 cursor-pointer border border-fuchsia-600 text-fuchsia-600 hover:bg-fuchsia-600 hover:text-white font-medium flex items-center justify-center`}>
+              }} className={`rounded px-4 py-2 cursor-pointer border border-fuchsia-600 text-fuchsia-600 hover:bg-fuchsia-600 hover:text-white font-medium flex items-center justify-center`}>
                 {coverImage ? `Remove` : `Select`}
                 <IoImageOutline className={`ml-1`} />
             </span>
