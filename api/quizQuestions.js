@@ -17,7 +17,6 @@ module.exports = async (req, res) => {
         question.options = options;
     }
 
-    client.close()
     res.status(200).json({questions});
 
 }

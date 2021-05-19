@@ -8,10 +8,8 @@ module.exports = async (req, res) => {
 
     collection.insertOne(req.body).then(result => {
         res.status(200).json("success")
-        client.close()
     })
     .catch(e => {
         console.log('Database error ',e.message)
-        client.close()
     })
 }

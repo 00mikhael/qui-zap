@@ -8,7 +8,6 @@ module.exports = async (req, res) => {
 
     const quizList = await collection.find().toArray()
 
-    client.close()
 
     res.status(200).json({quizList});
 
