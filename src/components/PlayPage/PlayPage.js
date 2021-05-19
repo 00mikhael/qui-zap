@@ -1,14 +1,20 @@
-import React from "react";
+import React, {Suspense} from "react";
 //, {useState, useEffect}
 
+import { useParams, Link } from 'react-router-dom'
+
+import useQuiz from '../../data/useQuiz'
+import useQuizDetails from '../../data/useQuizQuestions'
 import Board from '../Board'
-// import Quiz from '../Quiz'
-// import Question from '../Question'
+import Quiz from '../Quiz'
+import Question from '../Question'
+import Loading from '../Loading'
 
-// import {randomItem} from '../../utils/util'
 
+const PlayPage = () => {
 
-const PlayPage = ({quiz}) => {
+  const {id} = useParams()
+
 
   // const [question, setQuestion] = useState(randomItem(quiz.questionList));
   // const [selected, setSelected] = useState();
@@ -49,14 +55,44 @@ const PlayPage = ({quiz}) => {
 
   return (
     <div className={``}>
-      <Board className={`h-auto`} left={<QuizTitleDescription title={quiz.name} description={quiz.description} creator={quiz.creator}
-      />} right={<StartButton />} />
-      {/* <Quiz>
-        <Question selectedOption={selected} answerStatus={answerStatus} onAnswerSelected={handleAnswerSelected} quizImage={quiz.imageUrl} question={question} />
-      </Quiz> */}
+      <Suspense fallback={<Loading />}>
+        <Top id={id} />
+      </Suspense>
+      <Suspense fallback={<Loading />}>
+        <Playground id={id} />
+      </Suspense>
     </div>
   );
 };
+
+const Top = ({id}) => {
+  const {quiz} = useQuiz(id);
+
+  return (
+    <Board className={`h-auto`} left={<QuizTitleDescription title={quiz.name} description={quiz.description} creator={quiz.creator}
+      />} right={<StartButton />} />
+  )
+}
+
+const Playground = ({id}) => {
+  const {quiz} = useQuiz(id);
+  const { questions } = useQuizDetails(id)
+
+  if (!questions.length > 0) {
+    return (
+      <div className={`text-center p-4 text-gray-500 font-mono`}>Feature to add questions to a quiz will be available soon... Checkout <Link className={`underline text-fuchsia-500`} to="/play/609d62fa1610d7f5150d8013">this quiz</Link> to see what it looks like.</div>
+    )
+  }
+
+  return (
+    <>
+      <Quiz>
+        {/* <Question selectedOption={selected} answerStatus={answerStatus} onAnswerSelected={handleAnswerSelected} quizImage={quiz.imageUrl} question={question} /> */}
+        <Question quizImage={quiz.image_url} question={questions[0]} />
+      </Quiz>
+    </>
+  )
+}
 
 const StartButton = () => {
   return (
@@ -64,7 +100,9 @@ const StartButton = () => {
   );
 }
 
+
 const QuizTitleDescription = ({title, description, creator}) => {
+
   return (
     <div className={`flex flex-col space-y-2 col-start-2 col-end-4 row-start-4`}>
       <span className={`font-extrabold text-3xl text-fuchsia-700`}>{title}</span>

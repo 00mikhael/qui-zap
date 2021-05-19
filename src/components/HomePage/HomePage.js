@@ -1,5 +1,7 @@
 import React, {Suspense} from "react";
 
+import { useHistory } from 'react-router-dom'
+
 import Board from '../Board'
 import QuizList from '../QuizList'
 import QuizItem from '../QuizItem'
@@ -8,36 +10,35 @@ import useQuizList from '../../data/useQuizList'
 import Loading from '../Loading'
 
 
-const HomePage = ({ onAction }) => {
+const HomePage = () => {
   return (
     <div className={`flex-1`}>
       <Board left={<AppTitle/>} right={<AppDescription />} />
       <QuizList>
         <Suspense fallback={<Loading />}>
-          <List onAction={onAction} />
+          <List />
         </Suspense>
       </QuizList>
     </div>
   );
 };
 
-const List = ({onAction}) => {
+const List = () => {
   const { quizList } = useQuizList();
-
+  let history = useHistory();
 
   const list  = quizList.map((quizItem) => {
       return (
-        <QuizItem onAction={() => onAction(quizItem)} key={quizItem._id} showName={true} quiz={quizItem} />
+        <QuizItem onAction={() => {
+          history.push(`/play/${quizItem._id}`)
+        }} key={quizItem._id} showName={true} quiz={quizItem} />
       )
   });
 
 
   return (
       <>
-      {list.reverse()}
-        {/* {quizList && quizList?.reverse()?.map(quizItem => (
-          <QuizItem onAction={() => onAction(quizItem)} key={quizItem?._id} showName={true} quiz={quizItem} noFlex={quizList?.length < 6} />
-        ))} */}
+        {list.reverse()}
       </>
   )
 }

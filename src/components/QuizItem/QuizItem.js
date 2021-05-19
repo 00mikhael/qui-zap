@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 
 import { SimpleImg } from 'react-simple-img';
 import {FaQuestion} from 'react-icons/fa'
@@ -15,7 +15,7 @@ const QuizItem = ({quiz, onAction, noFlex}) => {
   const anyQuestionImage = ''
 
   return (
-    <Link onClick={onAction} style={{flexBasis: "18.5rem", width: "14.5rem", height: "400px", maxWidth: "550px"}} className={`${styles.item} flex-grow h-80 m-2 sm:mb-0 bg-fuchsia-200 cursor-pointer shadow-md hover:shadow-md rounded-lg overflow-hidden flex justify-center relative`} to="/play">
+    <div onClick={onAction} style={{flexBasis: "18.5rem", width: "14.5rem", height: "400px", maxWidth: "550px"}} className={`${styles.item} flex-grow h-80 m-2 sm:mb-0 bg-fuchsia-200 cursor-pointer shadow-md hover:shadow-md rounded-lg overflow-hidden flex justify-center relative`} >
 
       {
       (quiz.image_url || anyQuestionImage)
@@ -37,7 +37,7 @@ const QuizItem = ({quiz, onAction, noFlex}) => {
             <span className={`text-xs sm:text-sm text-gray-600 `}>{quiz.creator}</span>
           </div>
       </div>
-    </Link>
+    </div>
   );
 };
 

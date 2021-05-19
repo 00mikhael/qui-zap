@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import { BrowserRouter , Switch, Route, Link } from "react-router-dom";
 
 import Logo from '../Logo'
@@ -8,13 +8,7 @@ import HomePage from '../HomePage'
 import PlayPage from '../PlayPage'
 import CreatePage from '../CreatePage'
 
-
 const App =  () => {
-
-  const [currentQuiz, setCurrentQuiz] = useState({});
-  const handleClick = (item) => {
-    setCurrentQuiz(item)
-  }
 
   return (
     <BrowserRouter>
@@ -32,13 +26,13 @@ const App =  () => {
 
             <Route exact path="/">
               <div className={`bg-fuchsia-200 flex flex-col rounded-md overflow-hidden min-h-full flex-1`} >
-                <HomePage onAction={handleClick} />
+                <HomePage />
                 <QuizAdd />
               </div>
             </Route>
 
-            <Route exact path="/play">
-              <PlayPage quiz={currentQuiz} />
+            <Route exact path="/play/:id">
+              <PlayPage />
             </Route>
 
             <Route exact path="/create">
