@@ -44,7 +44,7 @@ const App =  () => {
           </Switch> }
         </main>
 
-        <footer className={`px-6 py-4 space-y-4 flex flex-col justify-center bg-white shadow-inner rounded-tr-3xl`}>
+        <footer className={`px-6 py-4 space-y-4 flex flex-col justify-center bg-white shadow-inner rounded-t-3xl`}>
           <div className={`bg-pink-200`}></div>
           <small className={`text-fuchsia-500 self-center`}>With <span className={`text-red-600`}>&hearts;</span> from <a className={`border-b-2 border-fuchsia-600 text-fuchsia-600 `}  target="_blank" rel="noreferrer" href="https://github.com/mikhaelnwankwo/qui-zap">Quizap HQ</a></small>
         </footer>

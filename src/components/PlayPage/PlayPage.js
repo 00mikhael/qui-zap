@@ -85,10 +85,10 @@ const Playground = ({id}) => {
   }
 
   return (
-      <Quiz>
-        {/* <Question selectedOption={selected} answerStatus={answerStatus} onAnswerSelected={handleAnswerSelected} quizImage={quiz.imageUrl} question={question} /> */}
-        <Question quizImage={quiz.image_url} question={questions[0]} />
-      </Quiz>
+        <Quiz>
+          {/* <Question selectedOption={selected} answerStatus={answerStatus} onAnswerSelected={handleAnswerSelected} quizImage={quiz.imageUrl} question={question} /> */}
+          <Question quizImage={quiz.image_url} question={questions[0]} />
+        </Quiz>
   )
 }
 
@@ -102,7 +102,7 @@ const StartButton = () => {
 const QuizTitleDescription = ({title, description, creator}) => {
 
   return (
-    <div className={`flex flex-col space-y-2 col-start-1 col-end-2 row-start-4`}>
+    <div className={`flex flex-col space-y-2 col-start-1 col-end-4 row-start-4`}>
       <span className={`font-extrabold text-3xl text-fuchsia-700`}>{title}</span>
       <span className={`font-normal text-base text-fuchsia-600 prose prose-sm`}>{description}</span>
       <span className={`font-bold text-fuchsia-600 text-sm text-fuchsia-600 pt-6 items-end`}>{creator}</span>

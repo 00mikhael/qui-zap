@@ -5,7 +5,7 @@ import QuestionImage from '../QuestionImage'
 const Question = ({quizImage, question, onAnswerSelected, selectedOption, answerStatus}) => {
   return (
     <>
-      <div className={`col-start-2 col-end-4 row-span-1 mb-8 text-center text-gray-700 w-full`}>
+      <div className={`col-span-full justify-self-center row-start-1 mb-8 text-center text-fuchsia-700 w-full`}>
         {question.question}
       </div>
       <QuestionImage questionImage={question.imageUrl} quizImage={quizImage} />
@@ -29,7 +29,7 @@ const Question = ({quizImage, question, onAnswerSelected, selectedOption, answer
 
 const QuestionOptions = ({children}) => {
   return (
-    <div className={` col-span-full md:col-start-3 md:col-end-5 md:row-start-2 text-base justify-self-center md:justify-self-end flex flex-col justify-center items-center md:items-end w-full`}>
+    <div className={` col-span-full md:col-start-2 md:row-start-2 text-base justify-self-center md:justify-self-end flex flex-col justify-center items-center md:items-end w-full`}>
       {children}
     </div>
   )
