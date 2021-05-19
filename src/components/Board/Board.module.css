@@ -1,3 +1,14 @@
-.bg {
-    background-image: linear-gradient(45deg, rgba(238, 130, 238, .5) 50% , transparent 50%);
+ .bg {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10vh), 24px 100%, 0 100%, 0 0);
 }
+
+.filter {
+    filter: drop-shadow(0 0 .3rem plum);
+}
+
+
+
+/*
+.bg_color {
+    background-color: rgba(238, 130, 238, .5);
+} */

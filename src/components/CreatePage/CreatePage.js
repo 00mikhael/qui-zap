@@ -118,7 +118,7 @@ const CreatePage = withRouter((props) => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className={`flex flex-col space-y-4 max-w-md mx-auto w-full`} encType="multipart/form-data">
+    <form onSubmit={handleSubmit} className={`flex flex-col space-y-4 max-w-md p-6 mx-auto w-full`} encType="multipart/form-data">
         <h1 className={`font-extrabold text-fuchsia-600 text-5xl my-2 `}>Create Quiz</h1>
         <span className={`flex flex-col`}>
           <label className={`font-semibold text-fuchsia-600 text-lg`} htmlFor="title">Title</label>
@@ -126,7 +126,7 @@ const CreatePage = withRouter((props) => {
         </span>
         <span className={`flex flex-col`}>
           <label className={`font-semibold text-fuchsia-600 text-lg`} htmlFor="description">Describe</label>
-          <textarea ref={inputDescRef} className={`px-4 py-2 mt-1 bg-fuchsia-50 rounded-md shadow-inner`}  id="description" type="text" placeholder="Enter quiz description"/>
+          <textarea ref={inputDescRef} className={`px-4 py-2 mt-1 bg-fuchsia-50 rounded-md shadow-inner resize-none`}  id="description" type="text" placeholder="Enter quiz description"/>
         </span>
         <span className={`flex flex-col`}>
           <label className={`font-semibold text-fuchsia-600 text-lg`} htmlFor="creator_name">Created By</label>
