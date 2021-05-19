@@ -3,7 +3,7 @@ import { BrowserRouter , Switch, Route, Link } from "react-router-dom";
 
 import Logo from '../Logo'
 import Nav from '../Nav'
-import QuizAdd from '../QuizAdd'
+// import QuizAdd from '../QuizAdd'
 import HomePage from '../HomePage'
 import PlayPage from '../PlayPage'
 import CreatePage from '../CreatePage'
